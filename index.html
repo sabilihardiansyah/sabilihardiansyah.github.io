@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Website pribadi Sabili Hardiansyah, mahasiswa Sistem Informasi yang berfokus pada pengembangan aplikasi, perangkat lunak, dan teknologi digital.">
+  <meta name="author" content="Sabili Hardiansyah">
+  <meta name="theme-color" content="#101b35">
+  <title>Sabili Hardiansyah | Portofolio</title>
+  <style>
+    :root {
+      --navy: #101b35;
+      --navy-2: #172746;
+      --blue: #4f8cff;
+      --blue-soft: #eaf1ff;
+      --ink: #182238;
+      --muted: #65718a;
+      --paper: #f7f9fc;
+      --white: #fff;
+      --line: #e5eaf2;
+      --shadow: 0 18px 50px rgba(16, 27, 53, .09);
+      --radius: 22px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.7;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1120px, calc(100% - 40px)); margin: auto; }
+    .nav-wrap {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(255,255,255,.9); backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(229,234,242,.9);
+    }
+    nav { min-height: 74px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: flex; align-items: center; gap: 11px; font-weight: 800; letter-spacing: -.03em; }
+    .brand-mark {
+      width: 38px; height: 38px; display: grid; place-items: center; border-radius: 12px;
+      color: white; background: linear-gradient(135deg, #244b88, #5795ff); font-size: 14px;
+    }
+    .nav-links { display: flex; align-items: center; gap: 25px; color: #526078; font-size: 13px; font-weight: 650; }
+    .nav-links a:hover { color: var(--blue); }
+    .menu-button { display: none; border: 0; background: var(--blue-soft); color: var(--navy); padding: 9px 12px; border-radius: 10px; font-weight: 700; }
+    .hero {
+      overflow: hidden; position: relative; color: white;
+      background: radial-gradient(circle at 82% 20%, rgba(79,140,255,.28), transparent 27%),
+                  radial-gradient(circle at 10% 100%, rgba(79,140,255,.16), transparent 30%),
+                  linear-gradient(125deg, #101b35, #172b4d 62%, #203e6b);
+    }
+    .hero-inner { min-height: 590px; display: grid; grid-template-columns: 1.35fr .65fr; align-items: center; gap: 50px; padding-top: 72px; padding-bottom: 82px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: #bcd2ff; font-size: 12px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+    .eyebrow:before { content: ""; width: 25px; height: 2px; background: #6ea1ff; }
+    h1 { margin: 18px 0 12px; max-width: 700px; font-size: clamp(42px, 6vw, 72px); line-height: 1.06; letter-spacing: -.055em; }
+    .hero h2 { margin: 0 0 22px; color: #a9c8ff; font-size: clamp(19px, 2.3vw, 26px); font-weight: 600; }
+    .hero-copy { max-width: 650px; color: #d7e1f3; font-size: 16px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+    .button { display: inline-flex; justify-content: center; align-items: center; padding: 13px 19px; border-radius: 12px; font-size: 13px; font-weight: 800; transition: .2s; }
+    .button-primary { background: #fff; color: var(--navy); }
+    .button-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0,0,0,.15); }
+    .button-outline { border: 1px solid rgba(255,255,255,.32); color: white; }
+    .button-outline:hover { background: rgba(255,255,255,.1); }
+    .profile-card {
+      position: relative; justify-self: center; width: min(290px, 100%); aspect-ratio: .83;
+      border: 1px solid rgba(255,255,255,.22); border-radius: 28px;
+      background: linear-gradient(145deg, rgba(255,255,255,.15), rgba(255,255,255,.04));
+      box-shadow: 0 30px 70px rgba(0,0,0,.2); display: flex; align-items: center; justify-content: center;
+    }
+    .initials { width: 174px; height: 174px; display: grid; place-items: center; border-radius: 50%; border: 1px solid rgba(255,255,255,.3); background: rgba(255,255,255,.09); color: #fff; font-size: 58px; font-weight: 800; letter-spacing: -.08em; }
+    .profile-caption { position: absolute; left: 22px; right: 22px; bottom: 20px; text-align: center; color: #d8e5ff; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+    .floating-tag { position: absolute; padding: 10px 14px; border: 1px solid rgba(255,255,255,.2); border-radius: 12px; background: rgba(15,29,55,.8); color: #dce8ff; font-size: 11px; font-weight: 700; }
+    .tag-one { top: 42px; left: -30px; } .tag-two { right: -28px; bottom: 90px; }
+    section { padding: 88px 0; }
+    .section-heading { max-width: 660px; margin-bottom: 36px; }
+    .section-kicker { color: #477fe0; font-size: 11px; letter-spacing: .17em; font-weight: 850; text-transform: uppercase; }
+    h2.section-title { margin: 8px 0 12px; font-size: clamp(29px, 4vw, 42px); letter-spacing: -.045em; line-height: 1.15; }
+    .section-desc { margin: 0; color: var(--muted); }
+    .about-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 24px; }
+    .card { background: white; border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; box-shadow: 0 8px 30px rgba(16,27,53,.035); }
+    .card p { color: var(--muted); margin: 0 0 14px; }
+    .card p:last-child { margin-bottom: 0; }
+    .info-list { display: grid; gap: 16px; }
+    .info-row { display: flex; justify-content: space-between; gap: 16px; padding-bottom: 13px; border-bottom: 1px solid var(--line); font-size: 13px; }
+    .info-row:last-child { border: 0; padding: 0; }
+    .info-row span:first-child { color: var(--muted); }
+    .info-row strong { text-align: right; }
+    .soft-section { background: #eef3fa; }
+    .timeline { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .timeline-card { background: white; padding: 26px; border-radius: 18px; border: 1px solid #e1e8f2; }
+    .timeline-label { color: #477fe0; font-size: 11px; font-weight: 850; text-transform: uppercase; letter-spacing: .12em; }
+    .timeline-card h3 { margin: 8px 0 5px; font-size: 19px; }
+    .timeline-card p { margin: 0; color: var(--muted); font-size: 14px; }
+    .skills { display: flex; flex-wrap: wrap; gap: 11px; }
+    .skill { padding: 10px 15px; border: 1px solid #dbe5f5; border-radius: 999px; color: #29456f; background: #f4f7fc; font-size: 13px; font-weight: 750; }
+    .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .project-card { overflow: hidden; background: white; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+    .project-top { min-height: 150px; display: flex; align-items: center; justify-content: center; color: white; background: linear-gradient(135deg, #1a2c4e, #477fe0); font-size: 27px; font-weight: 850; letter-spacing: -.04em; }
+    .project-card:nth-child(2) .project-top { background: linear-gradient(135deg, #153d4c, #39a6a0); }
+    .project-body { padding: 25px; }
+    .project-body h3 { margin: 0 0 9px; font-size: 21px; }
+    .project-body p { margin: 0; color: var(--muted); font-size: 14px; }
+    .project-note { display: inline-block; margin-top: 16px; color: #477fe0; font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .experience-box { display: grid; grid-template-columns: .38fr .62fr; gap: 25px; align-items: start; }
+    .experience-year { color: #477fe0; font-size: 13px; font-weight: 850; }
+    .experience-box h3 { margin: 0 0 8px; font-size: 22px; }
+    .experience-box p, .experience-box li { color: var(--muted); font-size: 14px; }
+    .experience-box ul { padding-left: 19px; margin: 12px 0 0; }
+    .contact { color: white; background: linear-gradient(125deg, #101b35, #1b3763); }
+    .contact .section-kicker { color: #9fc0ff; }
+    .contact .section-desc { color: #d2def2; }
+    .contact-panel { display: flex; align-items: center; justify-content: space-between; gap: 25px; padding: 30px; border: 1px solid rgba(255,255,255,.17); border-radius: 20px; background: rgba(255,255,255,.06); }
+    .contact-panel strong { display: block; font-size: 20px; }
+    .contact-panel span { color: #c3d2ea; font-size: 13px; }
+    footer { padding: 25px 0; color: #8b96aa; background: #0c1529; font-size: 12px; }
+    footer .container { display: flex; justify-content: space-between; gap: 20px; }
+    @media (max-width: 760px) {
+      .container { width: min(100% - 30px, 600px); }
+      nav { min-height: 66px; }
+      .menu-button { display: block; }
+      .nav-links { display: none; position: absolute; top: 66px; left: 0; right: 0; padding: 18px 22px; background: white; border-bottom: 1px solid var(--line); flex-direction: column; align-items: flex-start; gap: 14px; }
+      .nav-links.open { display: flex; }
+      .hero-inner { grid-template-columns: 1fr; gap: 42px; padding-top: 65px; padding-bottom: 65px; }
+      .profile-card { width: 220px; aspect-ratio: 1; }
+      .initials { width: 130px; height: 130px; font-size: 44px; }
+      .tag-one { left: -15px; } .tag-two { right: -15px; }
+      section { padding: 65px 0; }
+      .about-grid, .timeline, .project-grid, .experience-box { grid-template-columns: 1fr; }
+      .contact-panel { align-items: flex-start; flex-direction: column; }
+      footer .container { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="nav-wrap">
+    <nav class="container">
+      <a class="brand" href="#beranda"><span class="brand-mark">SH</span><span>Sabili Hardiansyah</span></a>
+      <button class="menu-button" id="menuButton" aria-label="Buka menu">Menu</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#tentang">Tentang</a><a href="#pendidikan">Pendidikan</a><a href="#keahlian">Keahlian</a><a href="#proyek">Proyek</a><a href="#pengalaman">Pengalaman</a><a href="#kontak">Kontak</a>
+      </div>
+    </nav>
+  </div>
+
+  <header class="hero" id="beranda">
+    <div class="container hero-inner">
+      <div>
+        <div class="eyebrow">Portofolio pribadi</div>
+        <h1>Sabili<br>Hardiansyah.</h1>
+        <h2>Calon Software Engineer</h2>
+        <p class="hero-copy">Mahasiswa Sistem Informasi Universitas Pamulang yang tertarik pada pengembangan aplikasi, pemrograman, dan teknologi digital. Saya terus belajar, membangun proyek, dan mengembangkan kemampuan untuk menciptakan solusi yang bermanfaat.</p>
+        <div class="actions">
+          <a class="button button-primary" href="#proyek">Lihat proyek saya</a>
+          <a class="button button-outline" href="#tentang">Kenali saya</a>
+        </div>
+      </div>
+      <div class="profile-card" aria-label="Monogram Sabili Hardiansyah">
+        <span class="floating-tag tag-one">Teknologi</span>
+        <div class="initials">SH</div>
+        <span class="floating-tag tag-two">Terus berkembang</span>
+        <div class="profile-caption">Belajar · Berkarya · Bertumbuh</div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="tentang">
+      <div class="container">
+        <div class="section-heading"><div class="section-kicker">Perkenalan</div><h2 class="section-title">Tentang Saya</h2><p class="section-desc">Mengenal latar belakang, minat, dan arah pengembangan diri saya.</p></div>
+        <div class="about-grid">
+          <div class="card">
+            <p>Perkenalkan, saya <strong>Sabili Hardiansyah</strong>, mahasiswa Program Studi Sistem Informasi di Universitas Pamulang.</p>
+            <p>Saya memiliki ketertarikan pada pengembangan perangkat lunak, khususnya aplikasi mobile, pengembangan web, backend, basis data, dan kecerdasan buatan.</p>
+            <p>Melalui pembelajaran dan proyek mandiri, saya berusaha meningkatkan kemampuan teknis, memecahkan masalah, serta membangun aplikasi yang dapat memberikan manfaat bagi penggunanya.</p>
+          </div>
+          <div class="card info-list">
+            <div class="info-row"><span>Nama</span><strong>Sabili Hardiansyah</strong></div>
+            <div class="info-row"><span>Pendidikan</span><strong>Sistem Informasi</strong></div>
+            <div class="info-row"><span>Institusi</span><strong>Universitas Pamulang</strong></div>
+            <div class="info-row"><span>Minat</span><strong>Pengembangan Perangkat Lunak</strong></div>
+            <div class="info-row"><span>Tujuan karier</span><strong>Software Engineer</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft-section" id="pendidikan">
+      <div class="container">
+        <div class="section-heading"><div class="section-kicker">Latar belakang</div><h2 class="section-title">Pendidikan</h2><p class="section-desc">Perjalanan pendidikan yang membentuk dasar pengetahuan saya.</p></div>
+        <div class="timeline">
+          <article class="timeline-card"><div class="timeline-label">Pendidikan saat ini</div><h3>Universitas Pamulang</h3><p>Program Studi Sistem Informasi · Angkatan 2024</p></article>
+          <article class="timeline-card"><div class="timeline-label">Pendidikan sebelumnya</div><h3>SMKN 1 Cikande</h3><p>Pendidikan menengah kejuruan.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="keahlian">
+      <div class="container">
+        <div class="section-heading"><div class="section-kicker">Kemampuan</div><h2 class="section-title">Keahlian dan Teknologi</h2><p class="section-desc">Teknologi yang saya pelajari dan gunakan dalam latihan maupun pengembangan proyek.</p></div>
+        <div class="skills">
+          <span class="skill">Flutter</span><span class="skill">Dart</span><span class="skill">Laravel</span><span class="skill">PHP</span><span class="skill">MySQL</span><span class="skill">Java</span><span class="skill">Python</span><span class="skill">HTML</span><span class="skill">CSS</span><span class="skill">JavaScript</span><span class="skill">Pengembangan API</span><span class="skill">Basis Data</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft-section" id="proyek">
+      <div class="container">
+        <div class="section-heading"><div class="section-kicker">Hasil pengembangan</div><h2 class="section-title">Proyek Pilihan</h2><p class="section-desc">Beberapa proyek yang sedang dan telah saya kembangkan sebagai bagian dari proses belajar.</p></div>
+        <div class="project-grid">
+          <article class="project-card"><div class="project-top">UNPAM MOBILE</div><div class="project-body"><h3>UNPAM MOBILE</h3><p>Proyek aplikasi mobile untuk membantu mahasiswa mengakses informasi akademik. Dikembangkan dengan Flutter dan backend Laravel, dengan pengembangan fitur informasi perkuliahan serta asisten AI.</p><span class="project-note">Aplikasi mobile · Flutter · Laravel</span></div></article>
+          <article class="project-card"><div class="project-top">FindNear</div><div class="project-body"><h3>FindNear</h3><p>Konsep aplikasi Android untuk membantu pengguna menemukan fasilitas umum berdasarkan lokasi. Dirancang menggunakan pendekatan Location Based Service (LBS) dan sumber data terbuka.</p><span class="project-note">Android · Location Based Service</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="pengalaman">
+      <div class="container">
+        <div class="section-heading"><div class="section-kicker">Pengalaman profesional</div><h2 class="section-title">Pengalaman Kerja</h2><p class="section-desc">Pengalaman kerja yang turut membangun kedisiplinan, ketelitian, dan kemampuan bekerja sama.</p></div>
+        <div class="card experience-box">
+          <div><div class="experience-year">2024 — 2026</div><h3>Vivo Mobile Indonesia</h3><p>Pengalaman di lingkungan operasional dan teknis perangkat.</p></div>
+          <div><strong>Lingkup pengalaman</strong><ul><li>Pemeriksaan dan proses perbaikan perangkat.</li><li>Pembaruan perangkat lunak serta pengujian fungsi perangkat.</li><li>Pengecekan kondisi layar dan komponen display.</li><li>Menjaga ketelitian, kedisiplinan, dan koordinasi dalam pekerjaan.</li></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="kontak">
+      <div class="container">
+        <div class="section-heading"><div class="section-kicker">Terhubung</div><h2 class="section-title">Mari Berkolaborasi</h2><p class="section-desc">Saya terbuka untuk belajar, bertukar ide, dan berkolaborasi dalam proyek teknologi.</p></div>
+        <div class="contact-panel"><div><strong>Sabili Hardiansyah</strong><span>Calon Software Engineer · Mahasiswa Sistem Informasi</span></div><a class="button button-primary" href="#beranda">Kembali ke atas</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="container"><span>© <span id="year"></span> Sabili Hardiansyah. Hak cipta dilindungi.</span><span>Website portofolio pribadi</span></div></footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const menuButton = document.getElementById('menuButton');
+    const navLinks = document.getElementById('navLinks');
+    menuButton.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => navLinks.classList.remove('open')));
+  </script>
+</body>
+</html>
